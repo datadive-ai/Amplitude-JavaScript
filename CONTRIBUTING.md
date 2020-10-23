@@ -1,4 +1,4 @@
-# Contributing to the Amplitude SDK for JavaScript
+# Contributing to the Datadive SDK for JavaScript
 
 🎉 Thanks for your interest in contributing! 🎉
 
@@ -11,7 +11,7 @@
   - Snippet in `<script>` tag
   - RequireJS (may be dropped in future)
 - Workflow is facilitated with both `make` and `yarn` (legacy, may possibly be updated to full `yarn`)
-- Chek out the [Amplitude Instrumentation Explorer]((https://chrome.google.com/webstore/detail/amplitude-instrumentation/acehfjhnmhbmgkedjmjlobpgdicnhkbp)) to help logging events during development
+- Chek out the [Datadive Instrumentation Explorer]((https://chrome.google.com/webstore/detail/datadive-instrumentation/acehfjhnmhbmgkedjmjlobpgdicnhkbp)) to help logging events during development
 
 ### Architecture
 
@@ -24,15 +24,15 @@
 - UA Parser: Helps identify browsers
   - might be able to use upstream library and convert results, rather than our fork
 - sameSiteCookie: Sets how public the cookie reading is
-  - `amplitude.getInstance() is necessary even during reuse because of snippet stubbed
+  - `datadive.getInstance() is necessary even during reuse because of snippet stubbed
     - only applicable to snippet import
 
 ### Setting Up Development
 
 - Cloning, installing, and building
 ```
-git clone git@github.com:amplitude/Amplitude-JavaScript.git
-cd Amplitude-JavaScript
+git clone git@github.com:datadive-ai/dave-JavaScript.git
+cd Datadive-JavaScript
 make # Runs tests and generate builds
 yarn dev # Start development utility. Open localhost:9000 in your browser to access
 ```
@@ -56,11 +56,11 @@ PR titles should follow [conventional commit standards](https://www.conventional
 - `chore(<optional scope>)`: Other changes that don't modify src or test files
 - `revert(<optional scope>)`: Revert commit
 
-### Release [Amplitude Internal]
+### Release [Datadive Internal]
 
 Releases are managed by [semantic-release](https://github.com/semantic-release/semantic-release). It is a tool that will scan commits since the last release, determine the next [semantic version number](https://semver.org/), publish, and create changelogs.
 
-#### Release Conditions [Amplitude Internal]
+#### Release Conditions [Datadive Internal]
 
 - `BREAKING CHANGES` in the body will do a major release
   ```

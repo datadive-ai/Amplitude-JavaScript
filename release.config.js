@@ -16,13 +16,13 @@ module.exports = {
     ["@semantic-release/exec", {
       "prepareCmd": "make release",
       "publishCmd": "python scripts/deploy_s3.py --version ${nextRelease.version}",
-      "failCmd": "npm unpublish amplitude-js@${nextRelease.version}"
+      "failCmd": "npm unpublish datadive-js@${nextRelease.version}"
     }],
     ["@semantic-release/github", {
-      "assets": "amplitude*.js"
+      "assets": "datadive*.js"
     }],
     ["@semantic-release/git", {
-      "assets": ["package.json", "src/amplitude-snippet.js"],
+      "assets": ["package.json", "src/datadive-snippet.js"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
   ],

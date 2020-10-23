@@ -1,4 +1,4 @@
-### As of September 21, 2020 CHANGELOG.md is no longer manually updated. Please check the [releases page](https://github.com/amplitude/Amplitude-JavaScript/releases) for up to date changes.
+### As of September 21, 2020 CHANGELOG.md is no longer manually updated. Please check the [releases page](https://github.com/datadive-ai/dave-JavaScript/releases) for up to date changes.
 
 ### 7.1.1 (August 26, 2020)
 * Fix an issue with detection of whether or not cookies are enabled on a device
@@ -12,12 +12,12 @@
 
 #### Breaking Changes
 * The SDK cookie now defaults to SameSite=Lax
-* Windows Phone, IE Mobile, and Opera Mobile devices will be reported to amplitude slightly different. They will appear as "Windows Phone OS", "IEMobile", and "Opera Mobile" respectively.
+* Windows Phone, IE Mobile, and Opera Mobile devices will be reported to datadive slightly different. They will appear as "Windows Phone OS", "IEMobile", and "Opera Mobile" respectively.
 * The device type field has gone back to showing OS name.
 
 ### 6.2.0 (May 1, 2020)
 * Invoke the logEvent callbacks when a request is actually sent or when we give up on sending a request.
-* Pass the initialized amplitude instance to the `onInit` callback.
+* Pass the initialized datadive instance to the `onInit` callback.
 * Fix language validation issue that occured when language was undefined.
 
 ### 6.1.0 (April 23, 2020)
@@ -34,7 +34,7 @@
 * Only new and unseen devices will get the compact cookie. `cookieForceUpgrade` will force all browsers to upgrade and delete the old cookie.
 
 #### Breaking Changes
-* The cookie format has been changed to be more compact. If you use the same Amplitude project(API key) across multiple applications, and you track anonymous users across those applications, you will want to update amplitude across all those applications at the same time.
+* The cookie format has been changed to be more compact. If you use the same Datadive project(API key) across multiple applications, and you track anonymous users across those applications, you will want to update datadive across all those applications at the same time.
 
 ### 5.12.0 (April 12, 2020)
 * Use an IIFE build for the snippet. This will solve issues where the snippet wouldn't load for require js users.
@@ -43,14 +43,14 @@
 * Add a `sameSiteCookie` option to set the SameSite cookie. It is set to `None` by default
 
 ### 5.10.0 (March 10, 2020)
-* `Library` field for event will include `amplitude-react-native` when using SDK in react native.
+* `Library` field for event will include `datadive-react-native` when using SDK in react native.
 * `Device Type` field now will show the actual device model instead of OS name.
 
 ### 5.9.0 (February 3, 2020)
 * Add default versionName to for react-native
 
 ### 5.8.0 (December 6, 2019)
-* Add support to defer saving an amplitude cookie and logging events until a user has opted in
+* Add support to defer saving an datadive cookie and logging events until a user has opted in
 
 ### 5.7.1 (December 2, 2019)
 * Fix issue where null unsentKey and unsentIdentifyKeys were causing log crashes
@@ -109,8 +109,8 @@
 * Invoke runQueuedFunctions from the main library instead of the snippet. This will allow integrations to take advantage of the queueing feature on sites that do not use the snippet.
 
 #### Breaking Changes
-* Drop JSON polyfill. This will break IE 7 and older. You can install your own JSON polyfill before loading amplitude.
-* Stop committing generated files to the master branch in the git repository. You should not install amplitude from the master git branch. You should never import amplitude.min.js into your build.
+* Drop JSON polyfill. This will break IE 7 and older. You can install your own JSON polyfill before loading datadive.
+* Stop committing generated files to the master branch in the git repository. You should not install datadive from the master git branch. You should never import datadive.min.js into your build.
 * Drop custom user agent parsing for symbian and blackberry
 
 
@@ -174,12 +174,12 @@
 ### 3.7.0 (September 14, 2017)
 
 * Add `setSessionId(sesionId)` method. Note this is not recommended unless you know what are you doing.
-* Added support for Bower. Install using `bower install amplitude-js`.
+* Added support for Bower. Install using `bower install datadive-js`.
 * Switched from webpack to Rollup for building the SDK.
 
 ### 3.6.0 (September 13, 2017)
 
-* Supports clean NPM module loading eg: `const amplitude = require('amplitude');` or `import 'amplitude' from 'amplitude-js';`
+* Supports clean NPM module loading eg: `const datadive = require('datadive');` or `import 'datadive' from 'datadive-js';`
 * SDK is now a proper UMD module. Supports RequireJS with r.js builds now.
 * Updated build process to use webpack
 
@@ -189,7 +189,7 @@
 
 ### 3.4.0 (November 8, 2016)
 
-* Add `logEventWithTimestamp` to allow logging events with a custom timestamp. The timestamp should a number representing the time in milliseconds since epoch. See [documentation](https://rawgit.com/amplitude/Amplitude-Javascript/master/documentation/AmplitudeClient.html) for more details.
+* Add `logEventWithTimestamp` to allow logging events with a custom timestamp. The timestamp should a number representing the time in milliseconds since epoch. See [documentation](https://rawgit.com/amplitude/Amplitude-Javascript/master/documentation/DatadiveClient.html) for more details.
 * Add configuration option `deviceIdFromUrlParam`, which when set to `true` will have the SDK parse device IDs from url parameter `amp_device_id` if available. Device IDs defined in the configuration options during init will take priority over device IDs from url parameters.
 
 ### 3.3.2 (October 28, 2016)
@@ -225,8 +225,8 @@
 
 ### 3.0.0 (May 27, 2016)
 
-* Add support for logging events to multiple Amplitude apps. **Note this is a major update, and may break backwards compatability.** See [Readme](https://amplitude.zendesk.com/hc/en-us/articles/115001361248-JavaScript-SDK-Installation#backwards-compatibility) for details.
-* Init callback now passes the Amplitude instance as an argument to the callback function.
+* Add support for logging events to multiple Datadive apps. **Note this is a major update, and may break backwards compatability.** See [Readme](https://amplitude.zendesk.com/hc/en-us/articles/115001361248-JavaScript-SDK-Installation#backwards-compatibility) for details.
+* Init callback now passes the Datadive instance as an argument to the callback function.
 
 ### 2.13.0 (May 26, 2016)
 
@@ -245,7 +245,7 @@
 ### 2.11.0 (April 14, 2016)
 
 * Add tracking of each user's initial_utm parameters (which is captured as a set once operation). Utm parameters are now sent only once per user session.
-* Add documentation for SDK functions. You can take a look [here](https://rawgit.com/amplitude/Amplitude-Javascript/master/documentation/Amplitude.html). A link has also been added to the Readme.
+* Add documentation for SDK functions. You can take a look [here](https://rawgit.com/amplitude/Amplitude-Javascript/master/documentation/Datadive.html). A link has also been added to the Readme.
 * Fix cookie test bug. In rare cases, the cookie test failed to delete the key used in testing. Reloading the page generated new keys, filling up the cookie over time. Fixed test to re-use the same key.
 
 ### 2.10.0 (March 30, 2016)

@@ -1,19 +1,19 @@
 {
-  "name": "amplitude-js",
-  "author": "Amplitude <support@amplitude.com>",
+  "name": "datadive-js",
+  "author": "Datadive <support@datadive.ai>",
   "version": "7.3.0",
   "license": "MIT",
-  "description": "Javascript library for Amplitude Analytics",
+  "description": "Javascript library for Datadive Analytics",
   "keywords": [
     "analytics",
-    "amplitude"
+    "datadive"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/amplitude/amplitude-javascript.git"
+    "url": "https://github.com/datadive-ai/datadive-javascript.git"
   },
-  "main": "amplitude.umd.js",
-  "react-native": "amplitude.native.js",
+  "main": "datadive.umd.js",
+  "react-native": "datadive.native.js",
   "dependencies": {
     "@amplitude/ua-parser-js": "0.7.24",
     "blueimp-md5": "^2.10.0",
@@ -72,9 +72,9 @@
     "semantic-release": "semantic-release"
   },
   "bugs": {
-    "url": "https://github.com/amplitude/amplitude-javascript/issues"
+    "url": "https://github.com/datadive-ai/datadive-javascript/issues"
   },
-  "homepage": "https://github.com/amplitude/amplitude-javascript#readme",
+  "homepage": "https://github.com/datadive-ai/datadive-javascript#readme",
   "directories": {
     "test": "test"
   }

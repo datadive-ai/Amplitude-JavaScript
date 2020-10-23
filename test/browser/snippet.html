@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Amplitude Snippet Tests</title>
-    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Datadive Snippet Tests</title>
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
 </head>
+
 <body>
-<div id="mocha"></div>
-<script src="../../node_modules/mocha/mocha.js"></script>
-<script src="chai.js"></script>
-<script src="sinon.js"></script>
-<script>
-    mocha.ui('bdd');
-    var assert = chai.assert;
-    var expect = chai.expect;
-</script>
-<script src="../../amplitude-snippet.min.js"></script>
-<script src="../../build/snippet-tests.js"></script>
-<script>(window.mochaPhantomJS || mocha).run();</script>
+    <div id="mocha"></div>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="chai.js"></script>
+    <script src="sinon.js"></script>
+    <script>
+        mocha.ui('bdd');
+        var assert = chai.assert;
+        var expect = chai.expect;
+    </script>
+    <script src="../../datadive-snippet.min.js"></script>
+    <script src="../../build/snippet-tests.js"></script>
+    <script>(window.mochaPhantomJS || mocha).run();</script>
 </body>
+
 </html>

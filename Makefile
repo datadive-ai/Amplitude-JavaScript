@@ -1,12 +1,12 @@
 SRC = $(wildcard src/*.js)
-SNIPPET = src/amplitude-snippet.js
+SNIPPET = src/datadive-snippet.js
 TESTS = $(wildcard test/*.js)
 BINS = node_modules/.bin
 MINIFY = $(BINS)/uglifyjs
 JSDOC = $(BINS)/jsdoc
 JSHINT = $(BINS)/jshint
 BUILD_DIR = build
-PROJECT = amplitude
+PROJECT = datadive
 OUT = $(PROJECT).js
 SNIPPET_OUT = $(PROJECT)-snippet.min.js
 SEGMENT_SNIPPET_OUT = $(PROJECT)-segment-snippet.min.js
@@ -26,7 +26,7 @@ default: test
 #
 
 clean:
-	@-rm -f amplitude.js amplitude.min.js
+	@-rm -f datadive.js datadive.min.js
 	@-rm -rf node_modules npm-debug.log
 
 
@@ -61,7 +61,7 @@ README.md: $(SNIPPET_OUT) version
 	node scripts/readme
 
 #
-# Target for `amplitude.js` file.
+# Target for `datadive.js` file.
 #
 
 $(OUT): node_modules $(SRC) package.json rollup.config.js rollup.min.js rollup.native.js rollup.esm.js rollup.umd.js rollup.umd.min.js
@@ -76,7 +76,7 @@ $(OUT): node_modules $(SRC) package.json rollup.config.js rollup.min.js rollup.n
 	@NODE_ENV=production $(ROLLUP) --config rollup.nocompat.min.js # may be able to remove
 
 #
-# Target for minified `amplitude-snippet.js` file.
+# Target for minified `datadive-snippet.js` file.
 #
 $(SNIPPET_OUT): $(SRC) $(SNIPPET)
 	@$(JSHINT) --verbose $(SNIPPET)

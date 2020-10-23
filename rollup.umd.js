@@ -7,11 +7,11 @@ import json from 'rollup-plugin-json';
 export default {
   input: 'src/index.js',
   output: {
-    name: 'amplitude',
-    file: 'amplitude.umd.js',
+    name: 'datadive',
+    file: 'datadive.umd.js',
     format: 'umd',
     amd: {
-      id: 'amplitude',
+      id: 'datadive',
     }
   },
   plugins: [

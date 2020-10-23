@@ -42,7 +42,7 @@ const log = {
 
 var _log = function _log(s) {
   try {
-    console.log('[Amplitude] ' + s);
+    console.log('[Datadive] ' + s);
   } catch (e) {
     // console logging not available
   }

@@ -1,23 +1,23 @@
 module.exports = {
-  title: 'Amplitude JS SDK Docs',
-  tagline: 'Amplitude JavaScript SDK',
-  url: 'https://amplitude.github.io',
-  baseUrl: '/Amplitude-JavaScript/',
+  title: 'Datadive JS SDK Docs',
+  tagline: 'Datadive JavaScript SDK',
+  url: 'https://datadive.github.io',
+  baseUrl: '/Datadive-JavaScript/',
   onBrokenLinks: 'throw',
   favicon: 'img/amp_favicon.ico',
-  organizationName: 'Amplitude',
-  projectName: 'Amplitude-JavaScript',
+  organizationName: 'Datadive',
+  projectName: 'Datadive-JavaScript',
   themeConfig: {
     sidebarCollapsible: false,
     navbar: {
       logo: {
-        alt: 'Amplitude Logo',
+        alt: 'Datadive Logo',
         src: 'img/amp_logo.svg',
       },
       hideOnScroll: true,
       items: [
         {
-          href: 'https://github.com/amplitude/Amplitude-JavaScript/',
+          href: 'https://github.com/datadive-ai/dave-JavaScript/',
           label: 'GitHub',
           position: 'left',
         },
@@ -25,10 +25,10 @@ module.exports = {
     },
     footer: {
       logo: {
-        alt: 'Amplitude Logo',
+        alt: 'Datadive Logo',
         src: 'img/amp_logo.svg',
       },
-      copyright: `Copyright © ${new Date().getFullYear()} Amplitude, Inc.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Datadive, Inc.`,
     },
     prism: {
       defaultLanguage: 'javascript',
@@ -39,12 +39,12 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          homePageId: 'AmplitudeClient',
+          homePageId: 'DatadiveClient',
           path: 'docs',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/amplitude/Amplitude-JavaScript/website',
+            'https://github.com/datadive-ai/dave-JavaScript/website',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

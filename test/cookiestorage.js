@@ -3,10 +3,10 @@ import localStorage from '../src/localstorage.js';
 import CookieStorage from '../src/cookiestorage.js';
 import cookie from '../src/cookie.js';
 import baseCookie from '../src/base-cookie.js';
-import Amplitude from '../src/amplitude.js';
+import Datadive from '../src/datadive.js';
 
 describe('cookieStorage', function() {
-  new Amplitude();
+  new Datadive();
   var keyPrefix = 'amp_cookiestore_';
 
   describe('getStorage', function() {

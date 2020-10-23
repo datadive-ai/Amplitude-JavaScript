@@ -1,16 +1,16 @@
 {
-  "name": "amplitude-js",
-  "description": "Javascript library for Amplitude Analytics",
-  "main": "amplitude.umd.js",
+  "name": "datadive-js",
+  "description": "Javascript library for Datadive Analytics",
+  "main": "datadive.umd.js",
   "authors": [
-    "Amplitude <support@amplitude.com>"
+    "Datadive <support@datadive.ai>"
   ],
   "license": "MIT",
   "keywords": [
     "analytics",
-    "amplitude"
+    "datadive"
   ],
-  "homepage": "https://github.com/amplitude/Amplitude-JavaScript",
+  "homepage": "https://github.com/datadive-ai/dave-JavaScript",
   "ignore": [
     "**/.*",
     "Makefile",

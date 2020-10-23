@@ -36,12 +36,12 @@ var options = function(opts) {
   var domain = (!utils.isEmptyString(opts.domain)) ? opts.domain : '.' + topDomain(getLocation().href);
   var token = Math.random();
   _options.domain = domain;
-  set('amplitude_test', token);
-  var stored = get('amplitude_test');
+  set('datadive_test', token);
+  var stored = get('datadive_test');
   if (!stored || stored !== token) {
     domain = null;
   }
-  remove('amplitude_test');
+  remove('datadive_test');
   _options.domain = domain;
 
   return _options;

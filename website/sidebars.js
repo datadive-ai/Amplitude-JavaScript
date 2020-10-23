@@ -1,5 +1,5 @@
 module.exports = {
   sidebar: {
-    'API Reference': ['AmplitudeClient', 'Amplitude', 'Identify', 'Revenue'],
+    'API Reference': ['DatadiveClient', 'Datadive', 'Identify', 'Revenue'],
   },
 };

@@ -9,8 +9,8 @@
 .cache-loader
 
 # Generated jsdoc markdown
-docs/Amplitude.md
-docs/AmplitudeClient.md
+docs/Datadive.md
+docs/DatadiveClient.md
 docs/Identify.md
 docs/Revenue.md
 

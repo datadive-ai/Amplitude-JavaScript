@@ -6,8 +6,8 @@ import json from 'rollup-plugin-json';
 export default {
   input: 'src/index.js',
   output: {
-    name: 'amplitude',
-    file: 'amplitude.esm.js',
+    name: 'datadive',
+    file: 'datadive.esm.js',
     format: 'esm',
   },
   plugins: [

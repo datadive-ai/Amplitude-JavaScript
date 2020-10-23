@@ -12,10 +12,10 @@ if (BUILD_COMPAT_REACT_NATIVE) {
 }
 
 export default {
-  apiEndpoint: 'api.amplitude.com',
+  apiEndpoint: 'api.datadive.ai',
   batchEvents: false,
   cookieExpiration: 365 * 10,
-  cookieName: 'amplitude_id', // this is a deprecated option
+  cookieName: 'datadive_id', // this is a deprecated option
   sameSiteCookie: 'Lax', // cookie privacy policy
   cookieForceUpgrade: false,
   deferInitialization: false,
@@ -55,7 +55,7 @@ export default {
     version_name: true
   },
   unsetParamsReferrerOnNewSession: false,
-  unsentKey: 'amplitude_unsent',
-  unsentIdentifyKey: 'amplitude_unsent_identify',
+  unsentKey: 'datadive_unsent',
+  unsentIdentifyKey: 'datadive_unsent_identify',
   uploadBatchSize: 100,
 };

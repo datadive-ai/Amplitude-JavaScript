@@ -1,0 +1,139 @@
+<html>
+<!--<script src="src/datadive-snippet.js" type="text/javascript"></script>-->
+<script>
+  (function (window, document) {
+    var datadive = window.datadive || { '_q': [], '_iq': {} };
+    var as = document.createElement('script');
+    as.type = 'text/javascript';
+    as.async = true;
+    as.src = '/datadive.js';
+    as.onload = function () { if (window.datadive.runQueuedFunctions) { window.datadive.runQueuedFunctions(); } else { console.log('[Datadive] Error: could not load SDK'); } };
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(as, s);
+    function proxy(obj, fn) {
+      obj.prototype[fn] = function () {
+        this._q.push([fn].concat(Array.prototype.slice.call(arguments, 0))); return this;
+      };
+    }
+    var Identify = function () { this._q = []; return this; };
+    var identifyFuncs = ['add', 'append', 'clearAll', 'prepend', 'set', 'setOnce', 'unset'];
+    for (var i = 0; i < identifyFuncs.length; i++) { proxy(Identify, identifyFuncs[i]); }
+    datadive.Identify = Identify;
+    var Revenue = function () { this._q = []; return this; };
+    var revenueFuncs = ['setProductId', 'setQuantity', 'setPrice', 'setRevenueType', 'setEventProperties'];
+    for (var j = 0; j < revenueFuncs.length; j++) { proxy(Revenue, revenueFuncs[j]); }
+    datadive.Revenue = Revenue;
+    var funcs = ['init', 'logEvent', 'logRevenue', 'setUserId', 'setUserProperties',
+      'setOptOut', 'setVersionName', 'setDomain', 'setDeviceId',
+      'setGlobalUserProperties', 'identify', 'clearUserProperties',
+      'setGroup', 'logRevenueV2', 'regenerateDeviceId',
+      'logEventWithTimestamp', 'logEventWithGroups'];
+    function setUpProxy(instance) {
+      function proxyMain(fn) {
+        instance[fn] = function () {
+          instance._q.push([fn].concat(Array.prototype.slice.call(arguments, 0)));
+        };
+      }
+      for (var k = 0; k < funcs.length; k++) { proxyMain(funcs[k]); }
+    }
+    setUpProxy(datadive);
+    datadive.getInstance = function (instance) {
+      instance = ((!instance || instance.length === 0) ? '$default_instance' : instance).toLowerCase();
+      if (!datadive._iq.hasOwnProperty(instance)) {
+        datadive._iq[instance] = { '_q': [] }; setUpProxy(datadive._iq[instance]);
+      }
+      return datadive._iq[instance];
+    };
+    window.datadive = datadive;
+  })(window, document);
+
+
+  var setUserId = function () {
+    var userId = prompt('Input userId', 'user01');
+    datadive.setUserId(userId);
+  };
+  var setEventUploadThreshold = function () {
+    var eventUploadThreshold = parseInt(prompt('Input eventUploadThreshold', 5));
+    datadive.options.eventUploadThreshold = eventUploadThreshold;
+  };
+  var logEvent = function () {
+    var event = prompt('Input event type', 'clicked');
+    datadive.logEvent(event);
+  };
+  var setCity = function () {
+    var city = prompt('Input city', 'San Francisco, CA');
+    datadive.setUserProperties({ city: city });
+  };
+  var addToPhotoCount = function () {
+    var photoCount = parseInt(prompt('Input amount to increment photo count by', '2'), 10);
+    datadive.identify(new datadive.Identify().add('photoCount', photoCount));
+  };
+  var clickOnLinkA = function () {
+    datadive.logEvent('Clicked on link A', null, function () { window.location = 'https://www.google.com'; });
+  };
+  var setPhotoCount = function () {
+    var photoCount = parseInt(prompt('Input photo count to set', '2'), 10);
+    datadive.identify(new datadive.Identify().set('photoCount', photoCount), function () { alert('setPhotoCount!'); });
+  };
+  var setOncePhotoCount = function () {
+    var photoCount = parseInt(prompt('Input photo count to setOnce', '2'), 10);
+    datadive.identify(new datadive.Identify().setOnce('photoCount', photoCount));
+  };
+  var logRevenue = function () {
+    datadive.logRevenue(9.99, 1, 'productA');
+  }
+  var logRevenueV2 = function () {
+    var revenue = new datadive.Revenue().setProductId('other.productId').setQuantity(15).setPrice(145.99);
+    revenue.setEventProperties({ 'city': 'Boston' });
+    datadive.logRevenueV2(revenue);
+  }
+</script>
+<script>
+  datadive.init('a2dbce0e18dfe5f8e74493843ff5c053', null, { includeReferrer: true, includeUtm: true, includeGclid: true }, function () {
+    alert(datadive.options.deviceId);
+  });
+  datadive.setVersionName('Web');
+  datadive.identify(new datadive.Identify().add('photoCount', 1));
+  datadive.identify(new datadive.Identify().add('photoCount', 1).set('gender', 'male').unset('karma'));
+  datadive.logEvent('pageLoad');
+
+  datadive.getInstance('app2').logEvent('log event before init');
+  datadive.getInstance('app2').init('1d2fe1e104eb3f07a24e94d359f70fd5', 'checkers@gmail.com', { includeReferrer: true }, function (instance) {
+    alert(instance.options.deviceId);
+  });
+  datadive.getInstance('app2').identify(new datadive.Identify().set('key', 'value'));
+  datadive.getInstance('app2').logEvent('app 2 page load');
+
+  datadive.getInstance('app3').init('a2dbce0e18dfe5f8e74493843ff5c053', null, { batchEvents: true, eventUploadThreshold: 2 });
+  datadive.getInstance('app3').logEvent('app3 page Load');
+
+  datadive.getInstance('app4').init('1d2fe1e104eb3f07a24e94d359f70fd5', 'joe@gmail.com');
+  datadive.getInstance('app4').logEvent('app 4 page load');
+</script>
+
+<body>
+  <h3>Datadive JS Test</h3>
+  <ul>
+    <li><a href="javascript:setUserId();">Set user ID</a></li>
+    <li><a href="javascript:datadive.setOptOut(!datadive.options.optOut);">Toggle opt out</a></li>
+    <li><a href="javascript:logEvent();">Log event</a></li>
+    <li><a href="javascript:datadive.logEvent('clicked button', {color: 'red;', shape: 'triangle', sides: 3});">Log
+        event with event properties</a></li>
+    <li><a href="javascript:datadive.setUserProperties({age: 30, city: 'San Francisco, CA'});">Set user properties</a>
+    </li>
+    <li><a href="javascript:datadive.options.batchEvents = !datadive.options.batchEvents;">Toggle batch events</a></li>
+    <li><a href="javascript:setEventUploadThreshold();">Set event upload threshold</a></li>
+    <li><a href="javascript:clickOnLinkA();">Click on link A</a></li>
+    <br><br>Testing Identify calls<br>
+    <li><a href="javascript:addToPhotoCount();">Add to photo count</a></li>
+    <li><a href="javascript:datadive.identify(new datadive.Identify().unset('photoCount'));">Unset photo count</a></li>
+    <li><a href="javascript:setPhotoCount();">Set photo count</a></li>
+    <li><a href="javascript:setOncePhotoCount();">Set photo count once</a></li>
+    <li><a href="javascript:setCity();">Set city via setUserProperties</a></li>
+    <li><a href="javascript:datadive.clearUserProperties();">Clear all user properties</a></li>
+    <li><a href="javascript:logRevenueV2();">LogRevenueV2</a></li>
+    <br><br>
+    <li><a href="/test/browser/datadivejs2.html">Go to second page</a></li>
+</body>
+
+</html>

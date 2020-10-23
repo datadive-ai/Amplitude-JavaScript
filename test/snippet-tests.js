@@ -1,22 +1,22 @@
-import '../amplitude-snippet.min.js';
+import '../datadive-snippet.min.js';
 
 describe('Snippet', function() {
 
-  it('amplitude object should exist', function() {
-    assert.isObject(window.amplitude);
-    assert.isFunction(window.amplitude.init);
-    assert.isFunction(window.amplitude.logEvent);
+  it('datadive object should exist', function() {
+    assert.isObject(window.datadive);
+    assert.isFunction(window.datadive.init);
+    assert.isFunction(window.datadive.logEvent);
   });
 
-  it('amplitude object should proxy functions', function() {
-    amplitude.init('API_KEY');
-    amplitude.logEvent('Event', {prop: 1});
-    assert.lengthOf(amplitude._q, 2);
-    assert.deepEqual(amplitude._q[0], ['init', 'API_KEY']);
+  it('datadive object should proxy functions', function() {
+    datadive.init('API_KEY');
+    datadive.logEvent('Event', {prop: 1});
+    assert.lengthOf(datadive._q, 2);
+    assert.deepEqual(datadive._q[0], ['init', 'API_KEY']);
   });
 
-  it('amplitude object should proxy Identify object and calls', function() {
-    var identify = new amplitude.Identify().set('key1', 'value1').unset('key2');
+  it('datadive object should proxy Identify object and calls', function() {
+    var identify = new datadive.Identify().set('key1', 'value1').unset('key2');
     identify.add('key3', 2).setOnce('key4', 'value2');
 
     assert.lengthOf(identify._q, 4);
@@ -26,46 +26,46 @@ describe('Snippet', function() {
     assert.deepEqual(identify._q[3], ['setOnce', 'key4', 'value2']);
   });
 
-  it('amplitude object should proxy Revenue object and calls', function() {
-    var revenue = new amplitude.Revenue().setProductId('productIdentifier').setQuantity(5).setPrice(10.99);
+  it('datadive object should proxy Revenue object and calls', function() {
+    var revenue = new datadive.Revenue().setProductId('productIdentifier').setQuantity(5).setPrice(10.99);
     assert.lengthOf(revenue._q, 3);
     assert.deepEqual(revenue._q[0], ['setProductId', 'productIdentifier']);
     assert.deepEqual(revenue._q[1], ['setQuantity', 5]);
     assert.deepEqual(revenue._q[2], ['setPrice', 10.99]);
   });
 
-  it('amplitude object should proxy instance functions', function() {
-    amplitude.getInstance(null).init('API_KEY');
-    amplitude.getInstance('$DEFAULT_instance').logEvent('Click');
-    amplitude.getInstance('').clearUserProperties();
-    amplitude.getInstance('INSTANCE1').init('API_KEY1');
-    amplitude.getInstance('instanCE2').init('API_KEY2');
-    amplitude.getInstance('instaNce2').logEvent('Event');
+  it('datadive object should proxy instance functions', function() {
+    datadive.getInstance(null).init('API_KEY');
+    datadive.getInstance('$DEFAULT_instance').logEvent('Click');
+    datadive.getInstance('').clearUserProperties();
+    datadive.getInstance('INSTANCE1').init('API_KEY1');
+    datadive.getInstance('instanCE2').init('API_KEY2');
+    datadive.getInstance('instaNce2').logEvent('Event');
 
-    assert.deepEqual(Object.keys(amplitude._iq), ['$default_instance', 'instance1', 'instance2']);
-    assert.lengthOf(amplitude._iq['$default_instance']._q, 3);
-    assert.deepEqual(amplitude._iq['$default_instance']._q[0], ['init', 'API_KEY']);
-    assert.deepEqual(amplitude._iq['$default_instance']._q[1], ['logEvent', 'Click']);
-    assert.deepEqual(amplitude._iq['$default_instance']._q[2], ['clearUserProperties']);
-    assert.lengthOf(amplitude._iq['instance1']._q, 1);
-    assert.deepEqual(amplitude._iq['instance1']._q[0], ['init', 'API_KEY1']);
-    assert.lengthOf(amplitude._iq['instance2']._q, 2);
-    assert.deepEqual(amplitude._iq['instance2']._q[0], ['init', 'API_KEY2']);
-    assert.deepEqual(amplitude._iq['instance2']._q[1], ['logEvent', 'Event']);
+    assert.deepEqual(Object.keys(datadive._iq), ['$default_instance', 'instance1', 'instance2']);
+    assert.lengthOf(datadive._iq['$default_instance']._q, 3);
+    assert.deepEqual(datadive._iq['$default_instance']._q[0], ['init', 'API_KEY']);
+    assert.deepEqual(datadive._iq['$default_instance']._q[1], ['logEvent', 'Click']);
+    assert.deepEqual(datadive._iq['$default_instance']._q[2], ['clearUserProperties']);
+    assert.lengthOf(datadive._iq['instance1']._q, 1);
+    assert.deepEqual(datadive._iq['instance1']._q[0], ['init', 'API_KEY1']);
+    assert.lengthOf(datadive._iq['instance2']._q, 2);
+    assert.deepEqual(datadive._iq['instance2']._q[0], ['init', 'API_KEY2']);
+    assert.deepEqual(datadive._iq['instance2']._q[1], ['logEvent', 'Event']);
   });
 
-  it('amplitude object should proxy onInit', function() {
+  it('datadive object should proxy onInit', function() {
     const callback = () => { };
-    amplitude.getInstance('onInit').onInit(callback);
-    amplitude.getInstance('onInit').init('API_KEY');
-    amplitude.getInstance('onInit').logEvent('Event', {prop: 1});
-    assert.lengthOf(amplitude._iq['oninit']._q, 3);
-    assert.deepEqual(amplitude._iq['oninit']._q[0], ['onInit', callback]);
+    datadive.getInstance('onInit').onInit(callback);
+    datadive.getInstance('onInit').init('API_KEY');
+    datadive.getInstance('onInit').logEvent('Event', {prop: 1});
+    assert.lengthOf(datadive._iq['oninit']._q, 3);
+    assert.deepEqual(datadive._iq['oninit']._q[0], ['onInit', callback]);
   });
 
-  it('amplitude object should proxy resetSessionId', function() {
-    amplitude.getInstance('reset_session_id_instance').init('API_KEY');
-    amplitude.getInstance('reset_session_id_instance').resetSessionId();
-    assert.deepEqual(amplitude._iq['reset_session_id_instance']._q[1], ['resetSessionId']);
+  it('datadive object should proxy resetSessionId', function() {
+    datadive.getInstance('reset_session_id_instance').init('API_KEY');
+    datadive.getInstance('reset_session_id_instance').resetSessionId();
+    assert.deepEqual(datadive._iq['reset_session_id_instance']._q[1], ['resetSessionId']);
   });
 });

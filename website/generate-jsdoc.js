@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const prettier = require("prettier");
 const publicFiles = [
-  "amplitude-client.js",
-  "amplitude.js",
+  "datadive-client.js",
+  "datadive.js",
   "identify.js",
   "revenue.js",
 ];

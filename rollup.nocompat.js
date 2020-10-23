@@ -7,8 +7,8 @@ import json from 'rollup-plugin-json';
 export default {
   input: 'src/index.js',
   output: {
-    name: 'amplitude',
-    file: 'amplitude.nocompat.js',
+    name: 'datadive',
+    file: 'datadive.nocompat.js',
     format: 'umd',
   },
   plugins: [

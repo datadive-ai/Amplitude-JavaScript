@@ -7,16 +7,16 @@ export default {
   GROUP_IDENTIFY_EVENT: '$groupidentify',
 
   // localStorageKeys
-  LAST_EVENT_ID: 'amplitude_lastEventId',
-  LAST_EVENT_TIME: 'amplitude_lastEventTime',
-  LAST_IDENTIFY_ID: 'amplitude_lastIdentifyId',
-  LAST_SEQUENCE_NUMBER: 'amplitude_lastSequenceNumber',
-  SESSION_ID: 'amplitude_sessionId',
+  LAST_EVENT_ID: 'datadive_lastEventId',
+  LAST_EVENT_TIME: 'datadive_lastEventTime',
+  LAST_IDENTIFY_ID: 'datadive_lastIdentifyId',
+  LAST_SEQUENCE_NUMBER: 'datadive_lastSequenceNumber',
+  SESSION_ID: 'datadive_sessionId',
 
   // Used in cookie as well
-  DEVICE_ID: 'amplitude_deviceId',
-  OPT_OUT: 'amplitude_optOut',
-  USER_ID: 'amplitude_userId',
+  DEVICE_ID: 'datadive_deviceId',
+  OPT_OUT: 'datadive_optOut',
+  USER_ID: 'datadive_userId',
 
   COOKIE_TEST_PREFIX: 'amp_cookie_test',
   COOKIE_PREFIX: "amp",
@@ -39,5 +39,5 @@ export default {
   UTM_TERM: 'utm_term',
   UTM_CONTENT: 'utm_content',
 
-  ATTRIBUTION_EVENT: '[Amplitude] Attribution Captured'
+  ATTRIBUTION_EVENT: '[Datadive] Attribution Captured'
 };

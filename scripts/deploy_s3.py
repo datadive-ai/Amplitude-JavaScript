@@ -47,10 +47,10 @@ def main():
     bucket = s3.Bucket(os.environ.get('S3_BUCKET_NAME'))
 
     files = [
-        f'amplitude-{args.version}.js',
-        f'amplitude-{args.version}-min.js',
-        f'amplitude-{args.version}.umd.js',
-        f'amplitude-{args.version}-min.umd.js'
+        f'datadive-{args.version}.js',
+        f'datadive-{args.version}-min.js',
+        f'datadive-{args.version}.umd.js',
+        f'datadive-{args.version}-min.umd.js'
     ]
     for file in files:
         if check_exists(s3.Object(os.environ.get('S3_BUCKET_NAME'), os.path.join('libs', file))):
@@ -59,8 +59,8 @@ def main():
         upload(bucket, file, unzipped_args)
 
     gz_files = [
-        f'amplitude-{args.version}-min.gz.js',
-        f'amplitude-{args.version}-min.umd.gz.js'
+        f'datadive-{args.version}-min.gz.js',
+        f'datadive-{args.version}-min.umd.gz.js'
     ]
     for file in gz_files:
         if check_exists(s3.Object(os.environ.get('S3_BUCKET_NAME'), file)):
@@ -68,7 +68,7 @@ def main():
         print(f'Uploading {file}')
         upload(bucket, file, zipped_args)
 
-    print(f'Success: S3 upload completed. Example: https://cdn.amplitude.com/libs/amplitude-{args.version}.js')
+    print(f'Success: S3 upload completed. Example: https://cdn.datadive.ai/libs/datadive-{args.version}.js')
     return 0
 
 if __name__ == '__main__':

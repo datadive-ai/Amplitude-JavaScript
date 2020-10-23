@@ -1,13 +1,13 @@
 /* jshint expr:true */
 // Entry point
-import Amplitude from  './amplitude';
+import Datadive from  './datadive';
 
-const old = window.amplitude || {};
-const newInstance = new Amplitude();
+const old = window.datadive || {};
+const newInstance = new Datadive();
 newInstance._q = old._q || [];
 
 /**
-* Instantiates Amplitude object and runs all queued function logged by stubbed methods provided by snippets
+* Instantiates Datadive object and runs all queued function logged by stubbed methods provided by snippets
 * Event queue allows async loading of SDK to not blocking client's app
 */
 for (let instance in old._iq) { // migrate each instance's queue

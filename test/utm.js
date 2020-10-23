@@ -3,14 +3,14 @@ import getUtmData from '../src/utm.js';
 describe('getUtmData', function() {
 
   it('should get utm params from the query string', function() {
-    var query = '?utm_source=amplitude&utm_medium=email&utm_term=terms' +
+    var query = '?utm_source=datadive&utm_medium=email&utm_term=terms' +
                 '&utm_content=top&utm_campaign=new';
     var utms = getUtmData('', query);
     assert.deepEqual(utms, {
       utm_campaign: 'new',
       utm_content: 'top',
       utm_medium: 'email',
-      utm_source: 'amplitude',
+      utm_source: 'datadive',
       utm_term: 'terms'
     });
   });
@@ -29,7 +29,7 @@ describe('getUtmData', function() {
   });
 
   it('should prefer utm params from the query string', function() {
-    var query = '?utm_source=amplitude&utm_medium=email&utm_term=terms' +
+    var query = '?utm_source=datadive&utm_medium=email&utm_term=terms' +
                 '&utm_content=top&utm_campaign=new';
     var cookie = '133232535.1424926227.1.1.utmcsr=google|utmccn=(organic)' +
                  '|utmcmd=organic|utmctr=(none)|utmcct=link';
@@ -38,7 +38,7 @@ describe('getUtmData', function() {
       utm_campaign: 'new',
       utm_content: 'top',
       utm_medium: 'email',
-      utm_source: 'amplitude',
+      utm_source: 'datadive',
       utm_term: 'terms'
     });
   });

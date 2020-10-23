@@ -23,7 +23,7 @@ var AMP_OP_UNSET = '$unset';
  * only the first operation on that property will be saved, and the rest will be ignored.
  * @constructor Identify
  * @public
- * @example var identify = new amplitude.Identify();
+ * @example var identify = new datadive.Identify();
  */
 var Identify = function() {
   this.userPropertiesOperations = {};
@@ -37,8 +37,8 @@ var Identify = function() {
  * @param {string} property - The user property key.
  * @param {number|string} value - The amount by which to increment the user property. Allows numbers as strings (ex: '123').
  * @return {Identify} Returns the same Identify object, allowing you to chain multiple method calls together.
- * @example var identify = new amplitude.Identify().add('karma', 1).add('friends', 1);
- * amplitude.identify(identify); // send the Identify call
+ * @example var identify = new datadive.Identify().add('karma', 1).add('friends', 1);
+ * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.add = function(property, value) {
   if (type(value) === 'number' || type(value) === 'string') {
@@ -60,9 +60,9 @@ Identify.prototype.add = function(property, value) {
  * @param {number|string|list|object} value - A value or values to append.
  * Values can be numbers, strings, lists, or object (key:value dict will be flattened).
  * @return {Identify} Returns the same Identify object, allowing you to chain multiple method calls together.
- * @example var identify = new amplitude.Identify().append('ab-tests', 'new-user-tests');
+ * @example var identify = new datadive.Identify().append('ab-tests', 'new-user-tests');
  * identify.append('some_list', [1, 2, 3, 4, 'values']);
- * amplitude.identify(identify); // send the Identify call
+ * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.append = function(property, value) {
   this._addOperation(AMP_OP_APPEND, property, value);
@@ -71,7 +71,7 @@ Identify.prototype.append = function(property, value) {
 
 /**
  * Clear all user properties for the current user.
- * SDK user should instead call amplitude.clearUserProperties() instead of using this.
+ * SDK user should instead call datadive.clearUserProperties() instead of using this.
  * $clearAll needs to be sent on its own Identify object. If there are already other operations, then don't add $clearAll.
  * If $clearAll already in an Identify object, don't allow other operations to be added.
  * @private
@@ -99,9 +99,9 @@ Identify.prototype.clearAll = function() {
  * @param {number|string|list|object} value - A value or values to prepend.
  * Values can be numbers, strings, lists, or object (key:value dict will be flattened).
  * @return {Identify} Returns the same Identify object, allowing you to chain multiple method calls together.
- * @example var identify = new amplitude.Identify().prepend('ab-tests', 'new-user-tests');
+ * @example var identify = new datadive.Identify().prepend('ab-tests', 'new-user-tests');
  * identify.prepend('some_list', [1, 2, 3, 4, 'values']);
- * amplitude.identify(identify); // send the Identify call
+ * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.prepend = function(property, value) {
   this._addOperation(AMP_OP_PREPEND, property, value);
@@ -115,9 +115,9 @@ Identify.prototype.prepend = function(property, value) {
  * @param {number|string|list|boolean|object} value - A value or values to set.
  * Values can be numbers, strings, lists, or object (key:value dict will be flattened).
  * @return {Identify} Returns the same Identify object, allowing you to chain multiple method calls together.
- * @example var identify = new amplitude.Identify().set('user_type', 'beta');
+ * @example var identify = new datadive.Identify().set('user_type', 'beta');
  * identify.set('name', {'first': 'John', 'last': 'Doe'}); // dict is flattened and becomes name.first: John, name.last: Doe
- * amplitude.identify(identify); // send the Identify call
+ * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.set = function(property, value) {
   this._addOperation(AMP_OP_SET, property, value);
@@ -133,8 +133,8 @@ Identify.prototype.set = function(property, value) {
  * @param {number|string|list|boolean|object} value - A value or values to set once.
  * Values can be numbers, strings, lists, or object (key:value dict will be flattened).
  * @return {Identify} Returns the same Identify object, allowing you to chain multiple method calls together.
- * @example var identify = new amplitude.Identify().setOnce('sign_up_date', '2016-04-01');
- * amplitude.identify(identify); // send the Identify call
+ * @example var identify = new datadive.Identify().setOnce('sign_up_date', '2016-04-01');
+ * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.setOnce = function(property, value) {
   this._addOperation(AMP_OP_SET_ONCE, property, value);
@@ -146,8 +146,8 @@ Identify.prototype.setOnce = function(property, value) {
  * @public
  * @param {string} property - The user property key.
  * @return {Identify} Returns the same Identify object, allowing you to chain multiple method calls together.
- * @example var identify = new amplitude.Identify().unset('user_type').unset('age');
- * amplitude.identify(identify); // send the Identify call
+ * @example var identify = new datadive.Identify().unset('user_type').unset('age');
+ * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.unset = function(property) {
   this._addOperation(AMP_OP_UNSET, property, '-');

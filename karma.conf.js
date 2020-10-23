@@ -31,14 +31,14 @@ module.exports = function(config) {
 
   config.set({
     sauceLabs: {
-      testName: 'Amplitude JavaScript SDK',
+      testName: 'Datadive JavaScript SDK',
     },
     preprocessors: {
       '**/*.js': ['sourcemap']
     },
     frameworks: ['mocha', 'chai'],
-    // files: ['amplitude-snippet.min.js', 'build/snippet-tests.js', 'build/tests.js'], @TODO: Fix flaky build/snippet-tests.js and re-enable
-    files: ['amplitude-snippet.min.js', 'build/tests.js'],
+    // files: ['datadive-snippet.min.js', 'build/snippet-tests.js', 'build/tests.js'], @TODO: Fix flaky build/snippet-tests.js and re-enable
+    files: ['datadive-snippet.min.js', 'build/tests.js'],
     reporters: ['mocha', 'saucelabs'],
     port: 9876,  // karma web server port
     colors: true,

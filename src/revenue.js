@@ -3,7 +3,7 @@ import type from './type';
 import utils from './utils';
 
 /**
- * Revenue API - instance constructor. Wrapper for logging Revenue data. Revenue objects get passed to amplitude.logRevenueV2 to send to Amplitude servers.
+ * Revenue API - instance constructor. Wrapper for logging Revenue data. Revenue objects get passed to datadive.logRevenueV2 to send to Datadive servers.
  * Each method updates a revenue property in the Revenue object, and returns the same Revenue object,
  * allowing you to chain multiple method calls together.
  * 
@@ -11,7 +11,7 @@ import utils from './utils';
  * If quantity is not specified then defaults to 1.
  * @constructor Revenue
  * @public
- * @example var revenue = new amplitude.Revenue();
+ * @example var revenue = new datadive.Revenue();
  */
 var Revenue = function Revenue() {
   // required fields
@@ -29,8 +29,8 @@ var Revenue = function Revenue() {
  * @public
  * @param {string} productId - The value for the product identifier. Empty and invalid strings are ignored.
  * @return {Revenue} Returns the same Revenue object, allowing you to chain multiple method calls together.
- * @example var revenue = new amplitude.Revenue().setProductId('productIdentifier').setPrice(10.99);
- * amplitude.logRevenueV2(revenue);
+ * @example var revenue = new datadive.Revenue().setProductId('productIdentifier').setPrice(10.99);
+ * datadive.logRevenueV2(revenue);
  */
 Revenue.prototype.setProductId = function setProductId(productId) {
   if (type(productId) !== 'string') {
@@ -48,8 +48,8 @@ Revenue.prototype.setProductId = function setProductId(productId) {
  * @public
  * @param {number} quantity - Integer value for the quantity. If not set, quantity defaults to 1.
  * @return {Revenue} Returns the same Revenue object, allowing you to chain multiple method calls together.
- * @example var revenue = new amplitude.Revenue().setProductId('productIdentifier').setPrice(10.99).setQuantity(5);
- * amplitude.logRevenueV2(revenue);
+ * @example var revenue = new datadive.Revenue().setProductId('productIdentifier').setPrice(10.99).setQuantity(5);
+ * datadive.logRevenueV2(revenue);
  */
 Revenue.prototype.setQuantity = function setQuantity(quantity) {
   if (type(quantity) !== 'number') {
@@ -67,8 +67,8 @@ Revenue.prototype.setQuantity = function setQuantity(quantity) {
  * @public
  * @param {number} price - Double value for the quantity.
  * @return {Revenue} Returns the same Revenue object, allowing you to chain multiple method calls together.
- * @example var revenue = new amplitude.Revenue().setProductId('productIdentifier').setPrice(10.99);
- * amplitude.logRevenueV2(revenue);
+ * @example var revenue = new datadive.Revenue().setProductId('productIdentifier').setPrice(10.99);
+ * datadive.logRevenueV2(revenue);
  */
 Revenue.prototype.setPrice = function setPrice(price) {
   if (type(price) !== 'number') {
@@ -84,8 +84,8 @@ Revenue.prototype.setPrice = function setPrice(price) {
  * @public
  * @param {string} revenueType - RevenueType to designate.
  * @return {Revenue} Returns the same Revenue object, allowing you to chain multiple method calls together.
- * @example var revenue = new amplitude.Revenue().setProductId('productIdentifier').setPrice(10.99).setRevenueType('purchase');
- * amplitude.logRevenueV2(revenue);
+ * @example var revenue = new datadive.Revenue().setProductId('productIdentifier').setPrice(10.99).setRevenueType('purchase');
+ * datadive.logRevenueV2(revenue);
  */
 Revenue.prototype.setRevenueType = function setRevenueType(revenueType) {
   if (type(revenueType) !== 'string') {
@@ -102,8 +102,8 @@ Revenue.prototype.setRevenueType = function setRevenueType(revenueType) {
  * @param {object} eventProperties - Revenue event properties to set.
  * @return {Revenue} Returns the same Revenue object, allowing you to chain multiple method calls together.
  * @example var event_properties = {'city': 'San Francisco'};
- * var revenue = new amplitude.Revenue().setProductId('productIdentifier').setPrice(10.99).setEventProperties(event_properties);
- * amplitude.logRevenueV2(revenue);
+ * var revenue = new datadive.Revenue().setProductId('productIdentifier').setPrice(10.99).setEventProperties(event_properties);
+ * datadive.logRevenueV2(revenue);
 */
 Revenue.prototype.setEventProperties = function setEventProperties(eventProperties) {
   if (type(eventProperties) !== 'object') {

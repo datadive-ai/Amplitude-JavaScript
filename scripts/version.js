@@ -24,17 +24,17 @@ function replaceTextInFile(filepath, match, replacement) {
 
 // Update version in snippet
 replaceTextInFile(
-  path.join('src', 'amplitude-snippet.js'),
-  /cdn\.amplitude\.com\/libs\/amplitude-[0-9]+\.[0-9]+\.[0-9]+-min\.gz\.js/,
-  `cdn.amplitude.com/libs/amplitude-${version}-min.gz.js`,
+  path.join('src', 'datadive-snippet.js'),
+  /cdn\.datadive\.ai\/libs\/datadive-[0-9]+\.[0-9]+\.[0-9]+-min\.gz\.js/,
+  `cdn.datadive.ai/libs/datadive-${version}-min.gz.js`,
 );
 
 // Update integrity hash in snippet
 // Provides extra layer of security. If script changes, it will fail to load
-const sdkText = fs.readFileSync(path.join('.', `amplitude.min.js`), 'utf-8');
+const sdkText = fs.readFileSync(path.join('.', `datadive.min.js`), 'utf-8');
 const hash = crypto.createHash('sha384').update(sdkText).digest('base64');
 replaceTextInFile(
-  path.join('src', 'amplitude-snippet.js'),
+  path.join('src', 'datadive-snippet.js'),
   /as.integrity = 'sha384-[a-zA-Z0-9+\/]+';/,
   `as.integrity = 'sha384-${hash}';`,
 );
