@@ -5,7 +5,7 @@
     (function (e, t) {
         var n = e.datadive || { _q: [], _iq: {} }; var r = t.createElement("script")
             ; r.type = "text/javascript"; r.async = true
-            ; r.src = "https://cdn.datadive.ai/libs/datadive-3.8.0-min.gz.js"
+            ; r.src = "http://localhost:9000/datadive.js"
             ; r.onload = function () {
                 if (e.datadive.runQueuedFunctions) {
                     e.datadive.runQueuedFunctions()
@@ -76,7 +76,7 @@
     }
 </script>
 <script>
-    datadive.init('a2dbce0e18dfe5f8e74493843ff5c053', null, { includeReferrer: true }, function () {
+    datadive.init('314893ff84434348b84a86fab5b3e8a9', null, {}, function () {
         alert(datadive.options.deviceId);
     });
     datadive.setVersionName('Web');
@@ -108,7 +108,9 @@
         <li><a href="javascript:setCity();">Set city via setUserProperties</a></li>
         <li><a href="javascript:datadive.clearUserProperties();">Clear all user properties</a></li>
         <br><br>
-        <li><a href="/test/browser/datadivejs.html">Go to first page</a></li>
+        <li><a
+                href="/test/browser/datadivejs.html?utm_source=google&utm_medium=blog&utm_campaign=july_launch&utm_content=WhatisUTM">Go
+                to first page</a></li>
 </body>
 
 </html>

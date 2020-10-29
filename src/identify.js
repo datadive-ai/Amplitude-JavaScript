@@ -7,13 +7,13 @@ import utils from './utils';
  * only the first operation will be saved, and the rest will be ignored.
  */
 
-var AMP_OP_ADD = '$add';
-var AMP_OP_APPEND = '$append';
-var AMP_OP_CLEAR_ALL = '$clearAll';
-var AMP_OP_PREPEND = '$prepend';
-var AMP_OP_SET = '$set';
-var AMP_OP_SET_ONCE = '$setOnce';
-var AMP_OP_UNSET = '$unset';
+var DAVE_OP_ADD = '$add';
+var DAVE_OP_APPEND = '$append';
+var DAVE_OP_CLEAR_ALL = '$clearAll';
+var DAVE_OP_PREPEND = '$prepend';
+var DAVE_OP_SET = '$set';
+var DAVE_OP_SET_ONCE = '$setOnce';
+var DAVE_OP_UNSET = '$unset';
 
 /**
  * Identify API - instance constructor. Identify objects are a wrapper for user property operations.
@@ -42,7 +42,7 @@ var Identify = function() {
  */
 Identify.prototype.add = function(property, value) {
   if (type(value) === 'number' || type(value) === 'string') {
-    this._addOperation(AMP_OP_ADD, property, value);
+    this._addOperation(DAVE_OP_ADD, property, value);
   } else {
     utils.log.error('Unsupported type for value: ' + type(value) + ', expecting number or string');
   }
@@ -65,7 +65,7 @@ Identify.prototype.add = function(property, value) {
  * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.append = function(property, value) {
-  this._addOperation(AMP_OP_APPEND, property, value);
+  this._addOperation(DAVE_OP_APPEND, property, value);
   return this;
 };
 
@@ -78,12 +78,12 @@ Identify.prototype.append = function(property, value) {
  */
 Identify.prototype.clearAll = function() {
   if (Object.keys(this.userPropertiesOperations).length > 0) {
-    if (!this.userPropertiesOperations.hasOwnProperty(AMP_OP_CLEAR_ALL)) {
+    if (!this.userPropertiesOperations.hasOwnProperty(DAVE_OP_CLEAR_ALL)) {
       utils.log.error('Need to send $clearAll on its own Identify object without any other operations, skipping $clearAll');
     }
     return this;
   }
-  this.userPropertiesOperations[AMP_OP_CLEAR_ALL] = '-';
+  this.userPropertiesOperations[DAVE_OP_CLEAR_ALL] = '-';
   return this;
 };
 
@@ -104,7 +104,7 @@ Identify.prototype.clearAll = function() {
  * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.prepend = function(property, value) {
-  this._addOperation(AMP_OP_PREPEND, property, value);
+  this._addOperation(DAVE_OP_PREPEND, property, value);
   return this;
 };
 
@@ -120,7 +120,7 @@ Identify.prototype.prepend = function(property, value) {
  * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.set = function(property, value) {
-  this._addOperation(AMP_OP_SET, property, value);
+  this._addOperation(DAVE_OP_SET, property, value);
   return this;
 };
 
@@ -137,7 +137,7 @@ Identify.prototype.set = function(property, value) {
  * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.setOnce = function(property, value) {
-  this._addOperation(AMP_OP_SET_ONCE, property, value);
+  this._addOperation(DAVE_OP_SET_ONCE, property, value);
   return this;
 };
 
@@ -150,7 +150,7 @@ Identify.prototype.setOnce = function(property, value) {
  * datadive.identify(identify); // send the Identify call
  */
 Identify.prototype.unset = function(property) {
-  this._addOperation(AMP_OP_UNSET, property, '-');
+  this._addOperation(DAVE_OP_UNSET, property, '-');
   return this;
 };
 
@@ -161,7 +161,7 @@ Identify.prototype.unset = function(property) {
  */
 Identify.prototype._addOperation = function(operation, property, value) {
   // check that the identify doesn't already contain a clearAll
-  if (this.userPropertiesOperations.hasOwnProperty(AMP_OP_CLEAR_ALL)) {
+  if (this.userPropertiesOperations.hasOwnProperty(DAVE_OP_CLEAR_ALL)) {
     utils.log.error('This identify already contains a $clearAll operation, skipping operation ' + operation);
     return;
   }

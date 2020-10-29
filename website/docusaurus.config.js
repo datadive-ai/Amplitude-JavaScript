@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://datadive.github.io',
   baseUrl: '/Datadive-JavaScript/',
   onBrokenLinks: 'throw',
-  favicon: 'img/amp_favicon.ico',
+  favicon: 'img/dave_favicon.ico',
   organizationName: 'Datadive',
   projectName: 'Datadive-JavaScript',
   themeConfig: {
@@ -12,7 +12,7 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'Datadive Logo',
-        src: 'img/amp_logo.svg',
+        src: 'img/dave_logo.svg',
       },
       hideOnScroll: true,
       items: [
@@ -26,7 +26,7 @@ module.exports = {
     footer: {
       logo: {
         alt: 'Datadive Logo',
-        src: 'img/amp_logo.svg',
+        src: 'img/dave_logo.svg',
       },
       copyright: `Copyright © ${new Date().getFullYear()} Datadive, Inc.`,
     },

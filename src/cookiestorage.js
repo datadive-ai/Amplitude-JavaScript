@@ -24,7 +24,7 @@ cookieStorage.prototype.getStorage = function() {
   } else {
     // if cookies disabled, fallback to localstorage
     // note: localstorage does not persist across subdomains
-    var keyPrefix = 'amp_cookiestore_';
+    var keyPrefix = 'dave_cookiestore_';
     this.storage = {
       _options: {
         expirationDays: undefined,

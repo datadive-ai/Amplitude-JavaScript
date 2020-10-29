@@ -1,17 +1,17 @@
 <p align="center">
-  <a href="https://datadive.ai" target="_blank" align="center">
-    <img src="https://static.amplitude.com/lightning/46c85bfd91905de8047f1ee65c7c93d6fa9ee6ea/static/media/amplitude-logo-with-text.4fb9e463.svg" width="280">
+  <a href="https://dev.datadive.ai" target="_blank" align="center">
+    <img src="http://dev.datadive.ai/images/light/logo.svg" width="280">
   </a>
   <br />
 </p>
 
-<div align="center">
+<!-- <div align="center">
 
   [![Test](https://github.com/datadive-ai/dave-JavaScript/workflows/Test/badge.svg)](https://github.com/datadive-ai/dave-JavaScript/actions?query=workflow%3ATest)
   [![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://badge.fury.io/js/amplitude-js)
   [![Bower version](https://badge.fury.io/bo/amplitude-js.svg)](https://badge.fury.io/bo/amplitude-js)
 
-</div>
+</div> -->
 
 # Official Datadive JS/Web SDK
 A JavaScript SDK for tracking events and revenue to [Datadive](https://www.datadive.ai).

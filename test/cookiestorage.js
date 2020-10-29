@@ -7,7 +7,7 @@ import Datadive from '../src/datadive.js';
 
 describe('cookieStorage', function() {
   new Datadive();
-  var keyPrefix = 'amp_cookiestore_';
+  var keyPrefix = 'dave_cookiestore_';
 
   describe('getStorage', function() {
     it('should use cookies if enabled', function() {

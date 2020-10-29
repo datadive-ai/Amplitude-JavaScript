@@ -18,7 +18,7 @@ import { mockCookie, restoreCookie, getCookie } from './mock-cookie';
 // maintain for testing backwards compatability
 describe('DatadiveClient', function() {
   var apiKey = '000000';
-  const cookieName = 'amp_' + apiKey.slice(0,6);
+  const cookieName = 'dave_' + apiKey.slice(0,6);
   const oldCookieName = 'datadive_id_' + apiKey;
   var keySuffix = '_' + apiKey.slice(0,6);
   var userId = 'user';
@@ -47,7 +47,7 @@ describe('DatadiveClient', function() {
     cookie.remove(datadive.options.cookieName + '_new_app');
     cookie.remove(oldCookieName);
     cookie.remove(cookieName);
-    cookie.remove('amp_');
+    cookie.remove('dave_');
     cookie.reset();
   }
 
@@ -224,7 +224,7 @@ describe('DatadiveClient', function() {
 
     it ('should load the device id from url params if configured', function() {
       var deviceId = 'aa_bb_cc_dd';
-      sinon.stub(datadive, '_getUrlParams').returns('?utm_source=datadive&utm_medium=email&gclid=12345&amp_device_id=aa_bb_cc_dd');
+      sinon.stub(datadive, '_getUrlParams').returns('?utm_source=datadive&utm_medium=email&gclid=12345&dave_device_id=aa_bb_cc_dd');
       datadive.init(apiKey, userId, {deviceIdFromUrlParam: true});
       assert.equal(datadive.options.deviceId, deviceId);
 
@@ -237,7 +237,7 @@ describe('DatadiveClient', function() {
 
     it ('should not load device id from url params if not configured', function() {
       var deviceId = 'aa_bb_cc_dd';
-      sinon.stub(datadive, '_getUrlParams').returns('?utm_source=datadive&utm_medium=email&gclid=12345&amp_device_id=aa_bb_cc_dd');
+      sinon.stub(datadive, '_getUrlParams').returns('?utm_source=datadive&utm_medium=email&gclid=12345&dave_device_id=aa_bb_cc_dd');
       datadive.init(apiKey, userId, {deviceIdFromUrlParam: false});
       assert.notEqual(datadive.options.deviceId, deviceId);
 
@@ -264,7 +264,7 @@ describe('DatadiveClient', function() {
 
     it ('should prefer the device id in the config over the url params', function() {
       var deviceId = 'dd_cc_bb_aa';
-      sinon.stub(datadive, '_getUrlParams').returns('?utm_source=datadive&utm_medium=email&gclid=12345&amp_device_id=aa_bb_cc_dd');
+      sinon.stub(datadive, '_getUrlParams').returns('?utm_source=datadive&utm_medium=email&gclid=12345&dave_device_id=aa_bb_cc_dd');
       datadive.init(apiKey, userId, {deviceId: deviceId, deviceIdFromUrlParam: true});
       assert.equal(datadive.options.deviceId, deviceId);
 

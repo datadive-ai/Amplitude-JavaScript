@@ -356,6 +356,46 @@ DatadiveClient.prototype._migrateUnsentEvents = function _migrateUnsentEvents(cb
 /**
  * @private
  */
+DatadiveClient.prototype._getUrl = function _getUrl(eventType) {
+  const url = {
+    host: window.location.host,
+    pathname: window.location.pathname,
+  };
+  if (window.location.search) {
+    url.search = window.location.search;
+  }
+  return eventType === Constants.IDENTIFY_EVENT ? {} : {
+    ...url,
+  };
+};
+
+/**
+ * @private
+ */
+DatadiveClient.prototype._getParamsAndReferrer = function _getParamsAndReferrer(eventType) {
+  let utmProperties;
+  let referrerProperties;
+  let gclidProperties;
+  const queryParams = this._getUrlParams();
+  const cookieParams = this.cookieStorage.get('__utmz');
+  const referrer = this._getReferrer();
+  const gclid = utils.getQueryParam('gclid', this._getUrlParams());
+  utmProperties = getUtmData(cookieParams, queryParams);
+  referrerProperties = utils.isEmptyString(referrer) ? undefined : {
+    'referrer': referrer,
+    'referring_domain': this._getReferringDomain(referrer)
+  };
+  gclidProperties = utils.isEmptyString(gclid) ? undefined : {'gclid': gclid};
+  return eventType === Constants.IDENTIFY_EVENT ? {} : {
+    ...utmProperties,
+    ...referrerProperties,
+    ...gclidProperties,
+  };
+};
+
+/**
+ * @private
+ */
 DatadiveClient.prototype._trackParamsAndReferrer = function _trackParamsAndReferrer() {
   let utmProperties;
   let referrerProperties;
@@ -764,7 +804,7 @@ DatadiveClient.prototype._saveGclid = function _saveGclid(urlParams) {
  * @private
  */
 DatadiveClient.prototype._getDeviceIdFromUrlParam = function _getDeviceIdFromUrlParam(urlParams) {
-  return utils.getQueryParam(Constants.AMP_DEVICE_ID_PARAM, urlParams);
+  return utils.getQueryParam(Constants.DAVE_DEVICE_ID_PARAM, urlParams);
 };
 
 /**
@@ -1055,7 +1095,7 @@ var _convertProxyObjectToRealObject = function _convertProxyObjectToRealObject(i
 
 /**
  * Send an identify call containing user property operations to Datadive servers.
- * See the [Identify](https://datadive-ai.github.io/Amplitude-JavaScript/Identify/)
+ * See the [Identify](https://datadive-ai.github.io/dave-JavaScript/Identify/)
  * reference page for more information on the Identify API and user property operations.
  * @param {Identify} identify_obj - the Identify object containing the user property operations to send.
  * @param {Datadive~eventCallback} opt_callback - (optional) callback function to run when the identify event has been sent.
@@ -1244,6 +1284,8 @@ DatadiveClient.prototype._logEvent = function _logEvent(eventType, eventProperti
       api_properties: apiProperties,
       event_properties: utils.truncate(utils.validateProperties(eventProperties)),
       user_properties: utils.truncate(utils.validateProperties(userProperties)),
+      ...this._getParamsAndReferrer(eventType),
+      ...this._getUrl(eventType),
       uuid: UUID(),
       library: {
         name: BUILD_COMPAT_REACT_NATIVE ? 'datadive-react-native' : 'datadive-js',
@@ -1408,7 +1450,7 @@ var _isNumber = function _isNumber(n) {
  * Log revenue with Revenue interface. The new revenue interface allows for more revenue fields like
  * revenueType and event properties.
  *
- * See the [Revenue](https://datadive-ai.github.io/Amplitude-JavaScript/Revenue/)
+ * See the [Revenue](https://datadive-ai.github.io/dave-JavaScript/Revenue/)
  * reference page for more information on the Revenue interface and logging revenue.
  * @public
  * @param {Revenue} revenue_obj - the revenue object containing the revenue data being logged.

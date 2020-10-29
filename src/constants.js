@@ -18,8 +18,8 @@ export default {
   OPT_OUT: 'datadive_optOut',
   USER_ID: 'datadive_userId',
 
-  COOKIE_TEST_PREFIX: 'amp_cookie_test',
-  COOKIE_PREFIX: "amp",
+  COOKIE_TEST_PREFIX: 'dave_cookie_test',
+  COOKIE_PREFIX: "dave",
 
   // revenue keys
   REVENUE_EVENT: 'revenue_amount',
@@ -28,7 +28,7 @@ export default {
   REVENUE_PRICE: '$price',
   REVENUE_REVENUE_TYPE: '$revenueType',
 
-  AMP_DEVICE_ID_PARAM: 'amp_device_id',  // url param
+  DAVE_DEVICE_ID_PARAM: 'dave_device_id',  // url param
 
   REFERRER: 'referrer',
 
