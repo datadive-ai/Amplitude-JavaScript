@@ -7,8 +7,8 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "serve": "docusaurus build --out-dir build/Datadive-JavaScript && yarn run docusaurus serve"
+    "deploy": "GIT_USER=deerpark USE_SSH=true docusaurus deploy",
+    "serve": "docusaurus build --out-dir build/dave-JavaScript && yarn run docusaurus serve"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.61",

@@ -16,13 +16,13 @@ This is done by calling `yarn docs:generate-jsdoc` from the base directory.
 
 Run `yarn start` from this directory or `yarn docs:start` from the base directory.
 
-Because of a bug with how Docusaurus handles `baseUrl` in `docusaurus.config.js`, you should open `localhost:3000/Datadive-JavaScript` instead of the default `localhost:3000/`
+Because of a bug with how Docusaurus handles `baseUrl` in `docusaurus.config.js`, you should open `localhost:3000/dave-JavaScript` instead of the default `localhost:3000/`
 
 ### Local Production Build
 
 Similar to local development build process. This command generates static content into the `website/build/` directory and creates a server to serve it.
 
-Run `yarn serve` from this directory or `yarn docs:serve` from the base directory. Then open `localhost:3000/Datadive-JavaScript`
+Run `yarn serve` from this directory or `yarn docs:serve` from the base directory. Then open `localhost:3000/dave-JavaScript`
 
 ### Deployment
 

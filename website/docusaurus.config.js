@@ -1,12 +1,12 @@
 module.exports = {
   title: 'Datadive JS SDK Docs',
   tagline: 'Datadive JavaScript SDK',
-  url: 'https://datadive.github.io',
-  baseUrl: '/Datadive-JavaScript/',
+  url: 'https://datadive-ai.github.io',
+  baseUrl: '/dave-JavaScript/',
   onBrokenLinks: 'throw',
   favicon: 'img/dave_favicon.ico',
-  organizationName: 'Datadive',
-  projectName: 'Datadive-JavaScript',
+  organizationName: 'datadive-ai',
+  projectName: 'dave-JavaScript',
   themeConfig: {
     sidebarCollapsible: false,
     navbar: {

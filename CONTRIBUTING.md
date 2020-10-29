@@ -32,7 +32,7 @@
 - Cloning, installing, and building
 ```
 git clone git@github.com:datadive-ai/dave-JavaScript.git
-cd Datadive-JavaScript
+cd dave-JavaScript
 make # Runs tests and generate builds
 yarn dev # Start development utility. Open localhost:9000 in your browser to access
 ```
