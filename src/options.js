@@ -12,7 +12,7 @@ if (BUILD_COMPAT_REACT_NATIVE) {
 }
 
 export default {
-  apiEndpoint: 'api.datadive.ai',
+  apiEndpoint: 'source.datadive.ai/event',
   batchEvents: false,
   cookieExpiration: 365 * 10,
   cookieName: 'datadive_id', // this is a deprecated option

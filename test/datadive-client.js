@@ -164,7 +164,7 @@ describe('DatadiveClient', function() {
       };
 
       datadive.init(apiKey, userId, config);
-      assert.equal(datadive.options.apiEndpoint, 'api.datadive.ai');
+      assert.equal(datadive.options.apiEndpoint, 'source.datadive.ai/event');
       assert.equal(datadive.options.batchEvents, false);
       assert.equal(datadive.options.cookieExpiration, 3650);
       assert.equal(datadive.options.cookieName, 'datadive_id');
@@ -1403,7 +1403,7 @@ describe('setVersionName', function() {
       datadive.options.forceHttps = false;
       datadive.logEvent('Event Type 1');
       assert.lengthOf(server.requests, 1);
-      assert.equal(server.requests[0].url, 'http://api.datadive.ai');
+      assert.equal(server.requests[0].url, 'http://source.datadive.ai/event');
       assert.equal(server.requests[0].method, 'POST');
       assert.equal(server.requests[0].async, true);
     });
@@ -1412,7 +1412,7 @@ describe('setVersionName', function() {
       datadive.options.forceHttps = true;
       datadive.logEvent('Event Type 1');
       assert.lengthOf(server.requests, 1);
-      assert.equal(server.requests[0].url, 'https://api.datadive.ai');
+      assert.equal(server.requests[0].url, 'https://source.datadive.ai/event');
       assert.equal(server.requests[0].method, 'POST');
       assert.equal(server.requests[0].async, true);
     });
@@ -1421,7 +1421,7 @@ describe('setVersionName', function() {
       datadive.init(apiKey, null, { forceHttps: true });
       datadive.logEvent('Event Type 1');
       assert.lengthOf(server.requests, 1);
-      assert.equal(server.requests[0].url, 'https://api.datadive.ai');
+      assert.equal(server.requests[0].url, 'https://source.datadive.ai/event');
       assert.equal(server.requests[0].method, 'POST');
       assert.equal(server.requests[0].async, true);
     });

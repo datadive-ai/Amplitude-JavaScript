@@ -60,8 +60,8 @@ We dropped our custom symbian and blackberry user agent parsing to simply match
 what the ua-parser-js library does.
 
 ### 4.0
-The library now defaults to sending requests to https://api.datadive.ai
-instead of //api.datadive.ai. This should only affect you if your site does
+The library now defaults to sending requests to https://source.datadive.ai/event
+instead of //source.datadive.ai/event. This should only affect you if your site does
 not use https and you use a Content Security Policy.
 
 ## Need Help?
