@@ -47,7 +47,7 @@
     datadive.getInstance().setUserId(userId);
   };
   var complete_signup = function () {
-    datadive.getInstance().logEvent('complete_signup');
+    datadive.getInstance().logEvent('signed_upsigned_in');
   };
   var response_login = function () {
     datadive.getInstance().logEvent('response_login');
@@ -65,8 +65,8 @@
   var clearUserProperties = function () {
     datadive.getInstance().clearUserProperties();
   };
-  var view_main = function () {
-    datadive.getInstance().logEvent('view_main');
+  var home_viewed = function () {
+    datadive.getInstance().logEvent('home_viewed');
   };
   var view_category = function () {
     var eventProperties = {
@@ -75,7 +75,7 @@
     };
     datadive.getInstance().logEvent('view_category', eventProperties);
   };
-  var view_product = function () {
+  var product_viewed = function () {
     var eventProperties = {
       'itemid': 'item.uuidString',
       'product_name': 'item.name',
@@ -87,7 +87,7 @@
       'review_count': 99, // 제품의 상품평 수
       'review_avg_rating': 7, // 제품의 상품평 평균 평점
     };
-    datadive.getInstance().logEvent('view_product', eventProperties);
+    datadive.getInstance().logEvent('product_viewed', eventProperties);
   };
   var click_shoppingbag_in_product = function () {
     var eventProperties = {
@@ -126,7 +126,7 @@
     };
     datadive.getInstance().logEvent('view_userinfo', eventProperties);
   };
-  var order_complete = function () {
+  var order_completed = function () {
     var products = [
       {
         'itemid': 'String',
@@ -151,7 +151,7 @@
       'delivery_fee': 2500, // 배송료
       'total_discount': 0, // 할인 금액
     };
-    datadive.getInstance().logEvent('order_complete', eventProperties);
+    datadive.getInstance().logEvent('order_completed', eventProperties);
   };
   var review_submitted = function () {
     var eventProperties = {
@@ -183,12 +183,12 @@
     <li><a href="javascript:response_login();">로그인 완료 이벤트 (Sign In)</a></li>
     <li><a href="javascript:setUserProperties();">회원 정보 업데이트</a></li>
     <li><a href="javascript:clearUserProperties();">로그아웃 완료</a></li>
-    <li><a href="javascript:view_main();">메인 화면 진입 이벤트 (Home Viewed)</a></li>
+    <li><a href="javascript:home_viewed();">메인 화면 진입 이벤트 (Home Viewed)</a></li>
     <li><a href="javascript:view_category();">카테고리 화면 이벤트 (Product Category Viewed)</a></li>
-    <li><a href="javascript:view_product();">제품 페이지 이벤트 (Product Detail Viewed)</a></li>
+    <li><a href="javascript:product_viewed();">제품 페이지 이벤트 (Product Detail Viewed)</a></li>
     <li><a href="javascript:click_shoppingbag_in_product();">장바구니에 추가 (Product added to cart)</a></li>
     <li><a href="javascript:view_userinfo();">결제 시작 이벤트 (Order started)</a></li>
-    <li><a href="javascript:order_complete();">결제 완료 이벤트 (Order Completed)</a></li>
+    <li><a href="javascript:order_completed();">결제 완료 이벤트 (Order Completed)</a></li>
     <li><a href="javascript:review_submitted();">상품평 작성 이벤트 (Review submitted)</a></li>
 </body>
 
